@@ -57,8 +57,12 @@ public class Main {
     public static void displayContacts (Path pathToContacts) throws IOException {
         List<String> contactList = Files.readAllLines(pathToContacts); //reading each line and storing each line into a list
         System.out.println("Contact List:");
+        System.out.println("Name | Phone Number");
+        System.out.println("---------------");
+
         for (int i = 0; i < contactList.size(); i += 1) {
-            System.out.println((i + 1) + ": " + contactList.get(i)); // loops through the list in the text file
+            System.out.println((i + 1) + ": " + contactList.get(i)); // loops through the list in the text file, prints out what number of the list its in
+            System.out.println( contactList.get(i).lastIndexOf("a")); // go to contact list and get that specific line, look for the last index of the last occurrence of a space
         }
     }
     public static void addContact(String contact, Path pathToContacts) throws IOException {
