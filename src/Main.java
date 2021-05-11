@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -34,6 +35,9 @@ public class Main {
                 String search = scanner.nextLine();
                 searchContacts(search, pathToContacts);
             } else if (userInput.equals("4")) {// delete contact
+                System.out.println("Enter the name of the contact to delete");
+                String search = scanner.nextLine();
+                deleteContact(search, pathToContacts);
 
             } else if (userInput.equals("5")) {//exit
                 repeat = false;
@@ -74,4 +78,17 @@ public class Main {
             System.out.println("The name you searched is not in our contact list!");
         }
     }
+    public static void deleteContact(String search, Path pathToContacts) throws IOException {
+        List<String> contacts = Files.readAllLines(pathToContacts);
+        List<String> newContacts = new ArrayList<>();
+
+        for (String contact : contacts) {
+            if (contact.contains(search)) {
+                continue;
+            }
+            newContacts.add(contact);
+        }
+        Files.write(pathToContacts, newContacts);
+    }
+
 }
