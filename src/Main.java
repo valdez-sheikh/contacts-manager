@@ -46,6 +46,8 @@ public class Main {
             } else if (userInput.equals("5")) {//exit
                 System.out.println("\nGood Bye!");
                 repeat = false;
+                List<String> contacts = Files.readAllLines(pathToContacts);
+                Files.write(pathToContacts, contacts);
             }
         } while (repeat);
 
