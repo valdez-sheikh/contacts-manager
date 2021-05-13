@@ -27,6 +27,8 @@ public class Main {
             } else if (userInput.equals("2")) {
                 System.out.println("\nCan you enter the Full Name and number?");
                 String contact = scanner.nextLine();
+                //*****need to ask if it matches do you still want to replace
+                //***** maybe create a method to seperate name and phone
                 addContact(contact, pathToContacts);
                 System.out.println();
                 displayContacts(pathToContacts);
